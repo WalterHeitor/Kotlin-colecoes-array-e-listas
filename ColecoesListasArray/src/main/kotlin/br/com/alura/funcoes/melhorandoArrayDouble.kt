@@ -1,4 +1,4 @@
-package br.com.alura
+package br.com.alura.br.com.alura.funcoes
 
 fun melhorandoArrays() {
     val salarios: DoubleArray = doubleArrayOf(1000.0, 1500.0, 2000.0, 2500.0, 3000.0)
