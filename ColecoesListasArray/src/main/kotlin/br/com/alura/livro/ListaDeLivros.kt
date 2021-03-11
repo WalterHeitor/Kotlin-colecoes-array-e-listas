@@ -1,6 +1,6 @@
 package br.com.alura.br.com.alura.livro
 
-fun criarListaDeLivros(){
+fun criarListaDeLivros() {
     val livro1 = Livro(
         "memorias postumas cubas",
         "Maria Clara",
@@ -26,10 +26,12 @@ fun criarListaDeLivros(){
     val livros: MutableList<Livro> = mutableListOf(livro1, livro2, livro3, livro4)
 
     livros.add(
-        Livro("Sacarana",
-        "Roberta",
-        1990,
-        "Editora C")
+        Livro(
+            "Sacarana",
+            "Roberta",
+            1990,
+            "Editora C"
+        )
     )
     println(livros)
     livros.imprimeComMarcadores()
@@ -43,11 +45,21 @@ fun criarListaDeLivros(){
     val ordenacaoTitulo = livros.sortedBy { it.titulo }
     ordenacaoTitulo.imprimeComMarcadores()
 
+    livros
+        .filter { it.autor == "Walter" }
+        .imprimeComMarcadores()
+    println("lista de titulos")
+    val titulos = livros
+        .filter { it.titulo.startsWith("m") }
+        .sortedBy { it.anoPublicacao }
+        .map { it.titulo }
+    println(titulos)
 }
+
 /**
  * extends functions
  */
-fun List<Livro>.imprimeComMarcadores(){
+fun List<Livro>.imprimeComMarcadores() {
     val textoFormatado = this.joinToString(separator = "\n") {
         " -> ${it.titulo} de ${it.autor}"
     }
