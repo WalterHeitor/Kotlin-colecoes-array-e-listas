@@ -1,13 +1,9 @@
 package br.com.alura
 
-import br.com.alura.br.com.alura.livro.listarLivrosNulos
-
+import br.com.alura.br.com.alura.funcoes.usaPrateleira
 
 fun main(){
-
-
-    listarLivrosNulos()
-
+    usaPrateleira()
 }
 
 
