@@ -1,4 +1,4 @@
-package br.com.alura.br.com.alura.funcoes
+package br.com.alura.br.com.alura
 
 import java.math.BigDecimal
 import java.math.RoundingMode
