@@ -30,28 +30,27 @@ import java.math.RoundingMode
         }
 
         println("gasto total $gastototal")
+
+        println("media 2: ${salariosComAumento
+            .sorted()
+            .takeLast(3)
+            .toTypedArray()
+            .media()}")
+
+        val salarioOrdenados = salariosComAumento.sorted()
+
+        val tresUltimosSalarios: Array<BigDecimal> = salarioOrdenados
+            .takeLast(3) // takeLast retorna uma lista
+            .toTypedArray()
+        val media = tresUltimosSalarios.media()
+        println("media $media")
+
+
+
     }
 
-    fun calculaAumentoRelativo(salario: BigDecimal, aumento: BigDecimal) =
-        if (salario < "2000.0".toBigDecimal()) {
-            salario + "500.0".toBigDecimal()
-        } else {
-            //2 casas decimais e arredonda para cima
-            (salario * aumento).setScale(2, RoundingMode.UP)
-        }
 
-    fun bigDecimalArrayOf(vararg valores:String) : Array<BigDecimal> {
-        return Array<BigDecimal>(valores.size) { i ->
-            valores[i].toBigDecimal()
-        }
-    }
 
-    /**
-     * extends function
-     */
-    fun Array<BigDecimal>.somatoria(): BigDecimal{
-       return this.reduce { acumulador, valor ->
-            acumulador + valor
-        }
-    }
+
+
 
