@@ -31,6 +31,7 @@ fun criarListaDeLivros(){
         1990,
         "Editora C")
     )
-
+    println(livros)
+    livros.remove(livro2)
     println(livros)
 }
