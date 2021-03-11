@@ -1,27 +1,39 @@
 package br.com.alura
 
+import java.math.BigDecimal
+import java.math.RoundingMode
+
 fun main(){
 
-    operacoesAgregadoras()
+    val salarios = bigDecimalArrayOf("1000.32", "2000.5", "3000.654", "4000.98", "5000.50")
+
+//        = Array<BigDecimal>(5) { BigDecimal.ZERO }
+//    salarios[0] = "1000".toBigDecimal()
+//    salarios[1] = "2000".toBigDecimal()
+
+    println(salarios.contentToString())
+
+    val aumento = "1.1".toBigDecimal()
+    //funcao map retorna lista de bigdecimal por isso muda o retorno de toTyedArray
+    val salariosComAumento: Array<BigDecimal> = salarios
+        .map {salario ->
+            if(salario < "2000.0".toBigDecimal()){
+                salario + "500.0".toBigDecimal()
+            }else {
+                //2 casas decimais e arredonda para cima
+                (salario * aumento).setScale(2, RoundingMode.UP)
+            }
+        }
+        .toTypedArray()
+
+    println(salariosComAumento.contentToString())
 
 }
 
-fun operacoesAgregadoras() {
-    val idades: IntArray = intArrayOf(10, 12, 93, 18, 40, 67, 5, 10)
-    val maiorIdade = idades.max()
-    println("maiorIdade $maiorIdade")
-    val menorIdade = idades.min()
-    println("menor idade $menorIdade")
-    val media: Double = idades.average()
-    println("media $media")
-    val maiores = idades.all { it > 18 }
-    println("Todos sao maiores de 18? $maiores")
-    val existeMaior = idades.any { it >= 18 }
-    println("existe maior de 18? $existeMaior")
-    val listMaiores = idades.filter { it >= 18 }
-    println("Lista maior de 18? $listMaiores")
-    val busca = idades.find { it >= 18 }
-    println("buscar maior de 18? $busca")
+fun bigDecimalArrayOf(vararg valores:String) : Array<BigDecimal>{
+    return Array<BigDecimal>(valores.size){i ->
+        valores[i].toBigDecimal()
+    }
 }
 
 
