@@ -13,7 +13,7 @@ fun criarListaDeLivros(){
         "Editora A"
     )
     val livro3 = Livro(
-        "Matematica com tecnologia",
+        "matematica com tecnologia",
         "Walter",
         1978
     )
@@ -37,13 +37,17 @@ fun criarListaDeLivros(){
     println(livros)
     livros.imprimeComMarcadores()
 
+    val ordenadoPorAnoDePublicacao = livros.sorted()
+    ordenadoPorAnoDePublicacao.imprimeComMarcadores()
 
+    val ordenacaoTitulo = livros.sortedBy { it.titulo }
+    ordenacaoTitulo.imprimeComMarcadores()
 
 }
 /**
  * extends functions
  */
-fun MutableList<Livro>.imprimeComMarcadores(){
+fun List<Livro>.imprimeComMarcadores(){
     val textoFormatado = this.joinToString(separator = "\n") {
         " -> ${it.titulo} de ${it.autor}"
     }
