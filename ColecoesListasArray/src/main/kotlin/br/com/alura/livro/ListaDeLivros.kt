@@ -1,23 +1,23 @@
 package br.com.alura.br.com.alura.livro
 
 fun criarListaDeLivros(){
-    var livro1 = Livro(
+    val livro1 = Livro(
         "memorias postumas cubas",
         "Maria Clara",
         1988
     )
-    var livro2 = Livro(
+    val livro2 = Livro(
         "Iracema",
         "rioderleia",
         2014,
         "Editora A"
     )
-    var livro3 = Livro(
+    val livro3 = Livro(
         "Matematica com tecnologia",
         "Walter",
         1978
     )
-    var livro4 = Livro(
+    val livro4 = Livro(
         "java para objetos",
         "heitor",
         1980,
@@ -32,6 +32,23 @@ fun criarListaDeLivros(){
         "Editora C")
     )
     println(livros)
+    livros.imprimeComMarcadores()
     livros.remove(livro2)
     println(livros)
+    livros.imprimeComMarcadores()
+
+
+
 }
+/**
+ * extends functions
+ */
+fun MutableList<Livro>.imprimeComMarcadores(){
+    val textoFormatado = this.joinToString(separator = "\n") {
+        " -> ${it.titulo} de ${it.autor}"
+    }
+    println("###### Lista de Livros ###### \n${textoFormatado}")
+}
+
+
+
